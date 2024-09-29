@@ -61,9 +61,9 @@
                 <dialog class="login" id="login">
                     <div class="dialog__wraper">
                         <h2>Welcom</h2>
-                        <input id="addLogin" type="text" placeholder="your login">
+                        <input id="addLogin" type="text" placeholder="your login" required>
                         <label for="addLogin">Login</label>
-                        <input id="addPasword" type="text" placeholder="your password">
+                        <input id="addPasword" type="text" placeholder="your password" required>
                         <label for="addPasword">Password</label>
                         <button type="submit">Submit</button>
                     </div>
@@ -112,78 +112,34 @@
             </section>
             <section class="section__catalog">
                 <h3>Our products</h3>
-                <form action="">
-                    <input id="name" type="text">
-                    <label for="name">name</label>
-                    <input id="price" type="text">
-                    <label for="price">price</label>
-                    <input id="description" type="text">
-                    <label for="description">description</label>
-                    <select name="status" id="status">
-                        <option value="">categories</option>
-                        <option value="">T-shorts</option>
-                        <option value="">Shoose</option>
-                        <option value="">Jackets</option>
-                    </select>
-                    <button type="submit">Add product</button>
+                <form id="addProductForm">
+                    <label for="productTitle">name</label>
+                    <input id="productTitle" type="text" required>
+                    <label for="productPrice">price</label>
+                    <input id="productPrice" type="text" required>
+                    <label for="productDescription">description</label>
+                    <input id="productDescription" type="text" required>
+                    <label for="productCategory">write category</label>
+                    <input type="text" id="productCategory" placeholder="Category" required>
+                    <button id="add-product" type="submit">Add product</button>
                 </form>
-                <!-- <ul class="catalog__menu">
-                    <li>SALE</li>
-                    <li>HOT</li>
-                    <li>NEW ARRIVALS</li>
-                    <li>ACCESSORIES</li>
-                </ul> -->
-                <ul class="catalog">
-                    <li class="catalog__item">
-                        <img src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                    <li class="catalog__item">
-                        <img class="photo" src="./images/catalog/image2.jpg" alt="#">
-                        <p class="item__name">Black Crop Tailored Jacket</p>
-                        <p class="item__price">$38.99</p>
-                        <button id="btn-delete">DELETE</button>
-                    </li>
-                </ul>
-                <button>Load more
+                <div id="message"></div>
+
+                <form id="sort">
+                    <label for="sortProduct">select a category</label>
+                    <select name="sortProduct" id="sortProduct">
+                        <option value="all">All products</option>
+                        <option value="jewelery">Jewelery</option>
+                        <option value="men's clothing">Men's clothing</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="women's clothing">Women's clothing</option>
+                    </select>
+                </form>
+
+                <div id="productList" class="productList">
+                    
+                </div>
+                <button id="btnDownLoadMore">Load more
                     <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23.7071 8.70711C24.0976 8.31658 24.0976 7.68342 23.7071 7.29289L17.3431 0.928932C16.9526 0.538408 16.3195 0.538408 15.9289 0.928932C15.5384 1.31946 15.5384 1.95262 15.9289 2.34315L21.5858 8L15.9289 13.6569C15.5384 14.0474 15.5384 14.6805 15.9289 15.0711C16.3195 15.4616 16.9526 15.4616 17.3431 15.0711L23.7071 8.70711ZM0 9L23 9V7L0 7L0 9Z" fill="#224F34"/>
                     </svg>                        
