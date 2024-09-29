@@ -136,7 +136,7 @@ h1 {
     grid-row: 1 / 13;
 }
 
-/* CATALOGe */
+/* Top CATALOGe */
 .selling{
     max-width: 1377px;
     display: flex;
@@ -233,37 +233,114 @@ h2 {
     padding-bottom: 7px;
     border-bottom: 2px solid #224F34;
 }
-.catalog {
+
+/* Form added or filter */
+form {
+    margin-top: 20px;
+    width: 900px;
+    max-height: 300px;
+    padding: 10px 20px;
+    border: 2px solid #224F34;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+form input {
+    max-width: 500px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 5px 10px;
+    grid-column: 2 / 4;
+}
+form label {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    grid-column: 1 / 2;
+}
+form select {
+    border: 2px solid #224F34;
+    border-radius: 3px;
+    margin-left: 9px;
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+}
+#add-product {
+    margin-top: 10px;
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+}
+
+
+#message {
+    padding: 10px;
+    margin: 10px 0;
+    display: none;
+}
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#sort {
+    margin-top: 20px;
+    width: 600px;
+    height: 50px;
+    padding: 10px 20px;
+    border: 2px solid #0d361e;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+#sort label {
+    padding: 5px;
+    grid-column: 1 / 2;
+}
+ #sortProduct {
+    border: 2px solid #224F34;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-left: 9px;
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+
+.productList {
     max-width: 1377px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.catalog li {
+.productList .product {
     width: 318px;
     margin-top: 90px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
-.catalog li img {
+
+
+.productList .product img {
     width: 318px;
     height: 378px;
     grid-column: 1 / 3;
 }
-.catalog .item__name {
+.productList h3 {
     font-size: 20px;
     font-weight: 600;
     margin-top: 43px;
     grid-column: 1 / 3;
 }
-.catalog .item__price{
+.productList p{
     font-size: 20px;
     font-weight: 600;
     margin-top: 20px;
     grid-column: 1 / 2;
 }
-.catalog #btn-delete {
+.productList #btn-delete {
     font-size: 20px;
     font-weight: 600;
     padding: 0px;
