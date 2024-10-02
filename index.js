@@ -1,16 +1,25 @@
 const API_URL = 'https://fakestoreapi.com';
 
-async function getProducts() {
+// getProducts принимает дополнительные фргументы в виде названия категории товара и если его не укажем, то он будет пустым
+async function getProducts(category = '') {
     try {
-        const response = await fetch(`${API_URL}/products`);
-        if (!response.ok) throw new Error("Network response was not ok")
-        const products = await response.json();
+        //Подготавливаем адрес для запроса
+        let url = `${API_URL}/products`;
+        //ЕСли категория в которой была указана то меняем адрес на запрос товараб у который есть выбранная категория
+        if (category && category !== 'All products') {
+            url = `${API_URL}/products/category/${category}`;
+        }
+        //Выполняем запрос по выбранной категории
+        const respons = await fetch(url);
+        if (!respons.ok) throw new Error("Network response was not ok")
+        const products = await respons.json();
         displayProducts(products);
     } catch (error) {
         showMessage('Error fetching products: ' + error.message, 'error');
     }
 }
 
+//Функция для отображения бродукта
 function displayProducts(products) {
     const productList = document.getElementById('productList');
     productList.innerHTML = '';
@@ -27,6 +36,7 @@ function displayProducts(products) {
     });
 }
 
+//функция для добавления нового продукта
 async function addProduct(e) {
     e.preventDefault();
     const newProduct = {
@@ -51,6 +61,7 @@ async function addProduct(e) {
     }
 }
 
+//функция для сортировки продуктов по категориям
 async function sortProduct(products) {
     const sort = {
         category: document.getElementById('sortProduct').value
@@ -90,7 +101,19 @@ function showMessage(message, type = 'success') {
     setTimeout(() => messageElement.style.display = 'none', 3000);
 }
 
+//Фильтрация товара
+function filterProducts() {
+    // Получаем название категории
+    const category = document.getElementById('sortProduct').value;
+    // Заполняем список товаров и в данную функцию передаем название категории
+    getProducts(category);
+}
+
+
+//Отслеживаем событие отправки в кнопке ОПРАВИТЬ
 document.getElementById('addProductForm').addEventListener('submit', addProduct);
+// Отслеживаем событие смены значения в кнопке сортировки
+document.getElementById('sortProduct').addEventListener('change', filterProducts);
 
 sortProduct();
 getProducts();
